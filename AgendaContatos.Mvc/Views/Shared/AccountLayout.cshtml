@@ -1,0 +1,43 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Agenda de Contatos</title>
+
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+
+</head>
+<body class="bg-secondary">
+
+    <div class="row mt-5">
+        <div class="col-md-4 offset-md-4">
+            <div class="card">
+                <div class="card-body">
+
+                    @RenderBody()
+
+                    @if (TempData["Mensagem"] != null)
+                    {
+                        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+                            <strong>@TempData["Mensagem"]</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="text-center text-white mt-3">
+                <small>Agenda de contatos v1.0</small>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

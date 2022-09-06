@@ -1,0 +1,71 @@
+﻿@** Definir a model utilizada nesta página *@
+@model AgendaContatos.Mvc.Models.ContatosEdicaoModel
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-body">
+
+        <h4 class="card-title">Edição de Contatos:</h4>
+        <p class="card-text">Altere os dados do contato em sua agenda.</p>
+
+        @using(Html.BeginForm())
+        {
+            <div>
+                @** Campo oculto *@
+                @Html.HiddenFor(model => model.IdContato)
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Nome do Contato:</label>
+                    @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Nome)
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label>Telefone:</label>
+                    @Html.TextBoxFor(model => model.Telefone, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Telefone)
+                    </div>
+                </div>
+                 <div class="col-md-3">
+                    <label>Email:</label>
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label>CPF:</label>
+                    @Html.TextBoxFor(model => model.Cpf, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Cpf)
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label>Data de Nascimento:</label>
+                    @Html.TextBoxFor(model => model.DataNascimento, new { @class = "form-control", @type = "date" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.DataNascimento)
+                    </div>
+                </div>
+            </div>
+
+             <div class="row mb-3">
+                <div class="col-md-3">
+                   <input type="submit" value="Salvar Alterações" class="btn btn-primary"/>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+

@@ -1,0 +1,94 @@
+﻿@using AgendaContatos.Mvc.Models
+@using Newtonsoft.Json
+
+@{
+    Layout = null;
+
+    //ler os dados do usuário autenticado contidos no Cookie do AspNet
+    //e deserializar estes dados para a classe model (objeto)
+    var authenticationModel = JsonConvert.DeserializeObject<AuthenticationModel>(User.Identity.Name);
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Agenda de Contatos</title>
+
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Agenda de Contatos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Gerenciar Contatos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/Contatos/Cadastro">Cadastrar Contatos</a></li>
+                            <li><a class="dropdown-item" href="/Contatos/Consulta">Consultar Contatos</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="/Relatorios/Consulta">Relatório de Contatos</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Usuarios/MinhaConta">MinhaConta</a>
+                    </li>
+                </ul>
+
+                <form class="d-flex">
+
+                    <div class="text-white">
+                        <div>
+                            <small>
+                                <strong>@authenticationModel.Nome</strong>
+                            </small>
+                        </div>
+                        <div style="margin-top: -10px!important">
+                            <small>@authenticationModel.Email</small>
+                        </div>
+                    </div>
+
+                    &nbsp;&nbsp;&nbsp;
+
+                    <a href="/Account/Logout" class="btn btn-outline-light btn-sm"
+                       onclick="return confirm('Deseja realmente encerrar sua sessão?');">
+                        Sair da Agenda
+                    </a>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+
+    @if (TempData["Mensagem"] != null)
+    {
+        <div class="alert alert-secondary alert-dismissible fade show" role="alert">
+            <strong>@TempData["Mensagem"]</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="container mt-3">
+        @RenderBody()
+    </div>
+
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+
+    @** Seção para conteudo javascript *@
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
+
+
+

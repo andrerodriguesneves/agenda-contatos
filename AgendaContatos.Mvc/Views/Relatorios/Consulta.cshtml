@@ -1,0 +1,38 @@
+﻿@** Definir a classe de modelo desta página *@
+@model AgendaContatos.Mvc.Models.RelatoriosConsultaModel
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="card mt-3">
+    <div class="card-body">
+
+        <h4 class="card-title">Relatório de Contatos:</h4>
+        <p class="card-text">Selecione o formato do relatório desejado.</p>
+
+        @using(Html.BeginForm())
+        {
+            <div class="mt-3">
+                <label>Formato do relatório:</label>
+                <div class="mt-2">
+                    @Html.RadioButtonFor(model => model.Formato, "excel") <label>Planilha Excel (.xlsx)</label>
+                </div>
+                <div class="mt-2">
+                    @Html.RadioButtonFor(model => model.Formato, "pdf") <label>Documento PDF</label>
+                </div>
+                <div class="mt-2 text-danger">
+                    @Html.ValidationMessageFor(model => model.Formato)
+                </div>
+            </div>
+
+            <div class="mt-3">
+                <input type="submit" value="Gerar Relatório" class="btn btn-success"/>
+            </div>
+        }
+
+    </div>
+</div>
+
+
+

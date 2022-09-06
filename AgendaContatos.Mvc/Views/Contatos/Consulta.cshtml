@@ -1,0 +1,56 @@
+﻿@model List<AgendaContatos.Mvc.Models.ContatosConsultaModel>
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-body">
+
+        <h4 class="card-title">Consulta de Contatos:</h4>
+        <p class="card-text">Listagem de contatos cadastrados.</p>
+
+        <table class="table table-hover table-sm">
+            <thead>
+                <tr>
+                    <th>Nome do Contato</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>Cpf</th>
+                    <th>Data de Nascimento</th>
+                    <th>Operações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.Nome</td>
+                        <td>@item.Telefone</td>
+                        <td>@item.Email</td>
+                        <td>@item.Cpf</td>
+                        <td>@item.DataNascimento</td>
+                        <td>
+                            <a href="/Contatos/Edicao/@item.IdContato" class="btn btn-primary btn-sm">
+                                Editar
+                            </a>
+                            <a href="/Contatos/Exclusao/@item.IdContato" class="btn btn-danger btn-sm"
+                                onclick="return confirm('Deseja realmente excluir o contato @item.Nome?')">
+                                Excluir
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="6">
+                        Quantidade de registros: @Model.Count()
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+</div>
+

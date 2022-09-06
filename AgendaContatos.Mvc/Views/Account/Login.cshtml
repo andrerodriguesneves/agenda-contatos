@@ -1,0 +1,51 @@
+﻿@** Define a classe de modelo da página *@
+@model AgendaContatos.Mvc.Models.AccountLoginModel
+
+@{
+    //define o layout da página
+    Layout = "~/Views/Shared/AccountLayout.cshtml";
+}
+
+<div class="text-center">
+    <img src="~/img/logo-coti-informatica.png" class="img-fluid"/>
+    <h5 class="card-title">Acessar Agenda</h5>
+    <p class="card-text">Entre com suas credenciais:</p>
+</div>
+
+<hr/>
+
+@using(Html.BeginForm())
+{
+    <div class="mb-2">
+        <label>Entre com o seu email:</label>
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+        <div class="text-danger">
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+    </div>
+
+    <div class="mb-2">
+        <label>Entre com a sua senha:</label>
+        @Html.PasswordFor(model => model.Senha, new { @class = "form-control" })
+        <div class="text-danger">
+            @Html.ValidationMessageFor(model => model.Senha)
+        </div>
+        <div class="text-end">
+            <a href="/Account/Password">
+                Esqueci minha senha.
+            </a>
+        </div>
+    </div>
+
+    <div class="mb-2 d-grid">
+        <input type="submit" class="btn btn-primary btn-sm"
+            value="Entrar"/>
+    </div>
+
+    <div class="mb-2 d-grid">
+        <a href="/Account/Register" class="btn btn-light btn-sm">
+            Não possui conta? <strong>Cadastre-se aqui!</strong>
+        </a>
+    </div>
+
+}

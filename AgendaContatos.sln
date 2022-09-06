@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaContatos.Mvc", "AgendaContatos.Mvc\AgendaContatos.Mvc.csproj", "{3DCDAA6B-CC59-4D94-BB74-55FE6A9624AB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaContatos.Data", "AgendaContatos.Data\AgendaContatos.Data.csproj", "{DADDA473-2E3F-4BA9-B308-A9915DA53222}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Camada de Apresentação", "1 - Camada de Apresentação", "{39665A1F-33F3-4634-A46E-ACAA701B49D1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Camada de Acesso a Dados", "2 - Camada de Acesso a Dados", "{01646DFA-1DB7-4BE8-BA26-C1E7FA8DE978}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Camada de Envio de Mensagens", "3 - Camada de Envio de Mensagens", "{379DBEEF-3B8F-4446-8A9A-F8AA9B7E3BD3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaContatos.Messages", "AgendaContatos.Messages\AgendaContatos.Messages.csproj", "{D7E7D495-3121-4E61-86E4-30E985BF8575}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Camada de Relatorios", "4 - Camada de Relatorios", "{5CC1FA02-8E92-4E52-AF88-8CAB34D45D18}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AgendaContatos.Reports", "AgendaContatos.Reports\AgendaContatos.Reports.csproj", "{FE792D86-15B9-424C-9A9B-3FFCA17BEB7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3DCDAA6B-CC59-4D94-BB74-55FE6A9624AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DCDAA6B-CC59-4D94-BB74-55FE6A9624AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DCDAA6B-CC59-4D94-BB74-55FE6A9624AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DCDAA6B-CC59-4D94-BB74-55FE6A9624AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DADDA473-2E3F-4BA9-B308-A9915DA53222}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DADDA473-2E3F-4BA9-B308-A9915DA53222}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DADDA473-2E3F-4BA9-B308-A9915DA53222}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DADDA473-2E3F-4BA9-B308-A9915DA53222}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7E7D495-3121-4E61-86E4-30E985BF8575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7E7D495-3121-4E61-86E4-30E985BF8575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7E7D495-3121-4E61-86E4-30E985BF8575}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7E7D495-3121-4E61-86E4-30E985BF8575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE792D86-15B9-424C-9A9B-3FFCA17BEB7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE792D86-15B9-424C-9A9B-3FFCA17BEB7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE792D86-15B9-424C-9A9B-3FFCA17BEB7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE792D86-15B9-424C-9A9B-3FFCA17BEB7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3DCDAA6B-CC59-4D94-BB74-55FE6A9624AB} = {39665A1F-33F3-4634-A46E-ACAA701B49D1}
+		{DADDA473-2E3F-4BA9-B308-A9915DA53222} = {01646DFA-1DB7-4BE8-BA26-C1E7FA8DE978}
+		{D7E7D495-3121-4E61-86E4-30E985BF8575} = {379DBEEF-3B8F-4446-8A9A-F8AA9B7E3BD3}
+		{FE792D86-15B9-424C-9A9B-3FFCA17BEB7F} = {5CC1FA02-8E92-4E52-AF88-8CAB34D45D18}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39C263F6-0BE2-4D9E-8489-65CB1EC763BA}
+	EndGlobalSection
+EndGlobal

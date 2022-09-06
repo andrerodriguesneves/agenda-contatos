@@ -1,0 +1,81 @@
+﻿@** Definir a model utilizada nesta página *@
+@model AgendaContatos.Mvc.Models.ContatosCadastroModel
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="card mb-3">
+    <div class="card-body">
+
+        <h4 class="card-title">Cadastro de Contatos:</h4>
+        <p class="card-text">Crie um contato em sua agenda.</p>
+
+        @using(Html.BeginForm())
+        {
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label>Nome do Contato:</label>
+                    @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Nome)
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label>Telefone:</label>
+                    @Html.TextBoxFor(model => model.Telefone, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Telefone)
+                    </div>
+                </div>
+                 <div class="col-md-3">
+                    <label>Email:</label>
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Email)
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label>CPF:</label>
+                    @Html.TextBoxFor(model => model.Cpf, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.Cpf)
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label>Data de Nascimento:</label>
+                    @Html.TextBoxFor(model => model.DataNascimento, new { @class = "form-control", @type = "date" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.DataNascimento)
+                    </div>
+                </div>
+            </div>
+
+             <div class="row mb-3">
+                <div class="col-md-3">
+                   <input type="submit" value="Realizar Cadastro" class="btn btn-success"/>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+@** Conteúdo da seção 'scripts' do layout *@
+@section scripts {
+
+    <script src="~/js/jquery-3.6.1.min.js"></script>
+    <script src="~/js/jquery.maskedinput.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#Telefone").mask("(99)99999-9999");
+            $("#Cpf").mask("999.999.999-99");
+        })
+    </script>
+}
+
+

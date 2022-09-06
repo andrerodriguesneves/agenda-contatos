@@ -1,0 +1,75 @@
+﻿@** Classe de modelo desta página *@
+@model AgendaContatos.Mvc.Models.AlterarSenhaModel
+
+@using AgendaContatos.Mvc.Models
+@using Newtonsoft.Json
+
+@{
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+
+     //ler os dados do usuário autenticado contidos no Cookie do AspNet
+    //e deserializar estes dados para a classe model (objeto)
+    var authenticationModel = JsonConvert.DeserializeObject<AuthenticationModel>(User.Identity.Name);
+}
+
+<div class="card mb-3">
+    <div class="card-body">
+        <h4 class="card-title">Dados do Usuário autenticado:</h4>
+        <p class="card-text">Informações de autenticação.</p>
+
+        <div class="mb-2">
+            Nome do Usuário: <strong>@authenticationModel.Nome</strong>
+        </div>
+
+         <div class="mb-2">
+            Email: <strong>@authenticationModel.Email</strong>
+        </div>
+
+         <div class="mb-2">
+            Data/Hora de Acesso: <strong>@authenticationModel.DataHoraAcesso.ToString("dd/MM/yyyy HH:mm")</strong>
+        </div>
+
+    </div>
+</div>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <h4 class="card-title">Alteração de senha de acesso:</h4>
+        <p class="card-text">Preencha os campos para alterar sua senha de usuário.</p>
+
+        @using(Html.BeginForm())
+        {
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label>Informe sua senha atual:</label>
+                    @Html.PasswordFor(model => model.SenhaAtual, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.SenhaAtual)
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label>Informa a nova senha:</label>
+                    @Html.PasswordFor(model => model.NovaSenha, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.NovaSenha)
+                    </div>
+                </div>
+                <div class="col-md-4">
+                     <label>Confirme a nova senha:</label>
+                    @Html.PasswordFor(model => model.NovaSenhaConfirmacao, new { @class = "form-control" })
+                    <div class="text-danger">
+                        @Html.ValidationMessageFor(model => model.NovaSenhaConfirmacao)
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <input type="submit" value="Salvar Alterações" class="btn btn-primary"/>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
